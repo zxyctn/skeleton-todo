@@ -38,7 +38,7 @@
 	class:bg-success-active-token={todo.done}
 >
 	<button
-		class="btn-icon variant-ghost absolute top-3 right-3 p-3 w-min h-min"
+		class="btn variant-ghost absolute top-0 right-0 p-2 w-min h-min rounded-none rounded-tr-md"
 		on:click={() => modalStore.trigger(confirm)}
 		><svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@
 		<h1 class="font-bold">{todo.title}</h1>
 		<h3>{todo.description}</h3>
 		<button
-			class="absolute right-3 bottom-3 btn-icon variant-ghost w-min ml-auto p-3"
+			class="absolute right-0 bottom-0 btn variant-ghost w-min ml-auto p-2 rounded-none rounded-br-md"
 			on:click={() => (showForm = true)}
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
