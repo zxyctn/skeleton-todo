@@ -44,14 +44,24 @@
 			</div>
 		{/each}
 		<div
-			class="absolute bottom-0 right-0 m-5 rounded-md bg-secondary-500 max-w-max shadow-lg h-min transition-all ease-in-out duration-200"
+			class="fixed bottom-5 right-5 rounded-md bg-secondary-500 max-w-max shadow-xl h-min transition-all ease-in-out duration-200"
 			class:p-5={showForm}
-			class:p-2={!showForm}
 		>
 			{#if !showForm}
-				<button class="btn w-full font-bold gap-1 text-xl" on:click={() => (showForm = true)}
-					><span class="h-full items-center">Add todo</span></button
-				>
+				<button class="btn variant-filled-secondary font-bold gap-1 text-xl p-3 shadow-2xl" on:click={() => (showForm = true)}
+					><svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						fill="currentColor"
+						viewBox="0 0 16 16"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+						/>
+					</svg>
+				</button>
 			{:else}
 				<Form on:submit={addTodo} bind:showForm bind:title bind:description />
 			{/if}
