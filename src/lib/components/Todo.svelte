@@ -33,12 +33,14 @@
 </script>
 
 <div
-	class="grid gap-3 p-8 shadow-2xl rounded-md h-min relative w-full"
-	class:variant-soft-surface={!todo.done}
-	class:bg-success-active-token={todo.done}
+	class="grid gap-3 shadow-lg rounded-md h-min relative w-full transition-all ease-in-out duration-300"
+	class:bg-success-400={todo.done}
+	class:bg-primary-400={!todo.done}
+	class:p-5={showForm}
+	class:p-9={!showForm}
 >
 	<button
-		class="btn variant-ghost absolute top-0 right-0 p-2 w-min h-min rounded-none rounded-tr-md"
+		class="btn bg-black/20 absolute top-0 right-0 p-2 w-min h-min rounded-none rounded-tr-md rounded-bl-md"
 		on:click={() => modalStore.trigger(confirm)}
 		><svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -54,10 +56,10 @@
 		</svg></button
 	>
 	{#if !showForm}
-		<h1 class="font-bold">{todo.title}</h1>
-		<h3>{todo.description}</h3>
+		<h2 class="font-bold">{todo.title}</h2>
+		<h5>{todo.description}</h5>
 		<button
-			class="absolute right-0 bottom-0 btn variant-ghost w-min ml-auto p-2 rounded-none rounded-br-md"
+			class="absolute right-0 bottom-0 btn bg-black/20 w-min ml-auto p-2 rounded-none rounded-br-md rounded-tl-md"
 			on:click={() => (showForm = true)}
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +75,7 @@
 			</svg></button
 		>
 		<button
-			class="absolute top-0 left-0 btn rounded-none rounded-tl-md p-2 variant-ghost"
+			class="absolute top-0 left-0 btn rounded-none rounded-tl-md rounded-br-md p-2 bg-black/20"
 			on:click={markDone}
 			><svg
 				xmlns="http://www.w3.org/2000/svg"

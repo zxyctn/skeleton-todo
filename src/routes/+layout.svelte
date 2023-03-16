@@ -3,13 +3,18 @@
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.postcss';
 
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, LightSwitch } from '@skeletonlabs/skeleton';
 </script>
 
 <AppShell>
 	<svelte:fragment slot="header">
 		<AppBar padding="p-5">
-			<h1 class="font-bold">todos</h1>
+			<svelte:fragment slot="lead">
+				<h1 class="font-bold">todos</h1>
+			</svelte:fragment>
+			<svelte:fragment slot="trail">
+				<LightSwitch ring="bg-neutral-400" />
+			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
 	<slot />

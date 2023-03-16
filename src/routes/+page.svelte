@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { scale } from 'svelte/transition';
+	import { blur } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 
 	import todosStore from '$lib/stores';
@@ -39,15 +39,18 @@
 <div class="container p-5 mx-auto">
 	<div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
 		{#each todos as todo, index (index)}
-			<div animate:flip transition:scale>
+			<div animate:flip transition:blur={{ duration: 200 }}>
 				<Todo {todo} on:delete={deleteTodo} on:edit={editTodo} />
 			</div>
 		{/each}
-
-		<div class="p-8 rounded-md bg-surface-700 h-min">
+		<div
+			class="absolute bottom-0 right-0 m-5 rounded-md bg-secondary-500 max-w-max shadow-lg h-min transition-all ease-in-out duration-200"
+			class:p-5={showForm}
+			class:p-2={!showForm}
+		>
 			{#if !showForm}
-				<button class="btn text-3xl w-full h-full" on:click={() => (showForm = true)}
-					>+ add todo</button
+				<button class="btn w-full font-bold gap-1 text-xl" on:click={() => (showForm = true)}
+					><span class="h-full items-center">Add todo</span></button
 				>
 			{:else}
 				<Form on:submit={addTodo} bind:showForm bind:title bind:description />

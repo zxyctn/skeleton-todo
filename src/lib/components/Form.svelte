@@ -11,7 +11,7 @@
 	<label class="label">
 		<span>Title</span>
 		<input
-			class="input variant-form-material bg-transparent"
+			class="input variant-form-material bg-white/40"
 			type="text"
 			placeholder="Title"
 			bind:value={title}
@@ -21,7 +21,7 @@
 	<label class="label">
 		<span>Description</span>
 		<textarea
-			class="textarea variant-form-material bg-transparent"
+			class="textarea variant-form-material bg-white/40 "
 			rows="4"
 			placeholder="Description"
 			bind:value={description}
